@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AppAnalyzer Sample</string>
+    <string name="app_analyzer_display_activity_label">Analyzer Sample</string>
+</resources>

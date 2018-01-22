@@ -1,0 +1,3 @@
+include ':app-analyzer-sample', ':app-analyzer-core-no-op'
+include ':app-analyzer-core'
+include ':app-analyzer-core-no-op'

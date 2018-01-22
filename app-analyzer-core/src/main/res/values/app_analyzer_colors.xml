@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="app_analyzer_bg_color">#ff303030</color>
+    <color name="app_analyzer_action_bar_color">#ff212121</color>
+    <color name="app_analyzer_error_bg_color">#59595b</color>
+    <color name="app_analyzer_light_orange_color">#F3CF83</color>
+    <color name="app_analyzer_light_blue_color">#84a6c5</color>
+    <color name="app_analyzer_red_color">#b1554e</color>
+    <color name="app_analyzer_green_color">#66BB6A</color>
+    <color name="app_analyzer_purple_color">#998bb5</color>
+</resources>
