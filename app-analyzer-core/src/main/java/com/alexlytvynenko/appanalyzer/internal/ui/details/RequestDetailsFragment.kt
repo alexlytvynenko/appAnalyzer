@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.*
 import com.alexlytvynenko.appanalyzer.R
-import com.alexlytvynenko.appanalyzer.internal.NetworkAnalyzerInternal
+import com.alexlytvynenko.appanalyzer.internal.AppAnalyzerInternal
 import com.alexlytvynenko.appanalyzer.internal.entity.RequestEntity
 import com.alexlytvynenko.appanalyzer.internal.screenHeight
 import com.alexlytvynenko.appanalyzer.internal.ui.LayoutController
@@ -58,8 +58,8 @@ class RequestDetailsFragment : Fragment() {
 
     private fun share() {
         request?.let {
-            val file = NetworkAnalyzerInternal.saveToFile(activity, it.toShareData())
-            NetworkAnalyzerInternal.shareFile(activity, file, "Request")
+            val file = AppAnalyzerInternal.saveToFile(activity, it.toShareData())
+            AppAnalyzerInternal.shareFile(activity, file, "Request")
         }
     }
 
@@ -86,7 +86,7 @@ class RequestDetailsFragment : Fragment() {
     }
 
     private fun deleteRequest(requestEntity: RequestEntity) {
-        NetworkAnalyzerInternal.deleteRequestFromDatabase(requestEntity)
+        AppAnalyzerInternal.deleteRequestFromDatabase(requestEntity)
         activity.onBackPressed()
     }
 }

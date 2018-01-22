@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="network_analyzer_NetworkAnalyzer.Base.NoActionBar">
+    <style name="app_analyzer_AppAnalyzer.Base.NoActionBar">
         <item name="android:statusBarColor">@android:color/black</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

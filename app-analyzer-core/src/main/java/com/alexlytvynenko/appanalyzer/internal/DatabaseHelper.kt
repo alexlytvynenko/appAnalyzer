@@ -9,7 +9,7 @@ import org.jetbrains.anko.db.*
 /**
  * Created by alex_litvinenko on 11.10.17.
  */
-internal class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "NetworkAnalyzerDatabase", null, 1) {
+internal class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "AppAnalyzerDatabase", null, 1) {
     companion object {
         private var instance: DatabaseHelper? = null
 

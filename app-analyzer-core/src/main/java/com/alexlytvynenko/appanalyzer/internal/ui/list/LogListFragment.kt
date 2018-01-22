@@ -2,7 +2,7 @@ package com.alexlytvynenko.appanalyzer.internal.ui.list
 
 import android.os.Bundle
 import android.view.View
-import com.alexlytvynenko.appanalyzer.internal.NetworkAnalyzerInternal
+import com.alexlytvynenko.appanalyzer.internal.AppAnalyzerInternal
 import com.alexlytvynenko.appanalyzer.internal.entity.LogEntity
 import com.alexlytvynenko.appanalyzer.internal.ui.list.base.BaseListAdapter
 import com.alexlytvynenko.appanalyzer.internal.ui.list.base.BaseListFragment
@@ -19,14 +19,14 @@ internal class LogListFragment : BaseListFragment<LogEntity>() {
         activity.title = "Logs in ${activity.packageName}"
     }
 
-    override fun isFeatureEnabled() = !NetworkAnalyzerInternal.disabledLogs
+    override fun isFeatureEnabled() = !AppAnalyzerInternal.disabledLogs
 
-    override fun getErrorText() = "Logs are disabled. To be able to listen logs go to the <font color='#A9B7C6'>NetworkAnalyzer</font> installation and call\n<font color='#A9B7C6'>NetworkAnalyzer.disabledLogs(</font><font color='#CC7832'>false</font><font color='#A9B7C6'>)</font>"
+    override fun getErrorText() = "Logs are disabled. To be able to listen logs go to the <font color='#A9B7C6'>AppAnalyzer</font> installation and call\n<font color='#A9B7C6'>AppAnalyzer.disabledLogs(</font><font color='#CC7832'>false</font><font color='#A9B7C6'>)</font>"
 
     override fun onItemClicked(entity: ItemViewHolder) {}
 
     override fun loadItems(): List<LogEntity> {
-        var logs = NetworkAnalyzerInternal.loadLogsFromDatabase()
+        var logs = AppAnalyzerInternal.loadLogsFromDatabase()
         if (logs == null) {
             logs = arrayListOf()
         }
@@ -34,11 +34,11 @@ internal class LogListFragment : BaseListFragment<LogEntity>() {
     }
 
     override fun removeItem(entity: LogEntity) {
-        NetworkAnalyzerInternal.deleteLogFromDatabase(entity)
+        AppAnalyzerInternal.deleteLogFromDatabase(entity)
     }
 
     override fun removeAll() {
-        NetworkAnalyzerInternal.deleteLogsFromDatabase()
+        AppAnalyzerInternal.deleteLogsFromDatabase()
     }
 
     override fun filterItems(query: String): List<LogEntity> =
@@ -50,7 +50,7 @@ internal class LogListFragment : BaseListFragment<LogEntity>() {
             it as LogEntity
             text.append(it.toShareData())
         }
-        val file = NetworkAnalyzerInternal.saveToFile(activity, text.toString())
-        NetworkAnalyzerInternal.shareFile(activity, file, "Logs")
+        val file = AppAnalyzerInternal.saveToFile(activity, text.toString())
+        AppAnalyzerInternal.shareFile(activity, file, "Logs")
     }
 }

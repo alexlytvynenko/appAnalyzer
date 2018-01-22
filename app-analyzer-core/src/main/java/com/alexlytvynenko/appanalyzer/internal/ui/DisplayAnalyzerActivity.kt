@@ -17,7 +17,7 @@ import com.alexlytvynenko.appanalyzer.internal.ui.list.RequestListFragment
 import kotlinx.android.synthetic.main.activity_display_network.*
 import android.support.design.widget.AppBarLayout
 
-internal class DisplayNetworkActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedListener,
+internal class DisplayAnalyzerActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedListener,
         LayoutController {
 
     private val MENU_ITEM_ID_LOG = 0
@@ -61,7 +61,7 @@ internal class DisplayNetworkActivity : AppCompatActivity(), FragmentManager.OnB
         // We don't want this to be called with an incompatible theme.
         // This could happen if you implement runtime switching of themes
         // using ActivityLifecycleCallbacks.
-        if (resId != R.style.network_analyzer_NetworkAnalyzer_Base_NoActionBar) {
+        if (resId != R.style.app_analyzer_AppAnalyzer_Base_NoActionBar) {
             return
         }
         super.setTheme(resId)

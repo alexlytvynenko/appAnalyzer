@@ -26,7 +26,7 @@ import java.util.*
 /**
  * Created by alex_litvinenko on 09.10.17.
  */
-internal object NetworkAnalyzerInternal {
+internal object AppAnalyzerInternal {
 
     private val fileIoExecutor = newSingleThreadExecutor("File-IO")
     private var appContext: WeakReference<Context>? = null
@@ -86,7 +86,7 @@ internal object NetworkAnalyzerInternal {
                 line = bufferedReader.readLine()
             }
         } catch (ex: IOException) {
-            Log.e("NetworkAnalyzerInternal", "Listening logs is failed", ex)
+            Log.e("AppAnalyzerInternal", "Listening logs is failed", ex)
         }
     }
 
@@ -102,7 +102,7 @@ internal object NetworkAnalyzerInternal {
     }
 
     private fun newSingleThreadExecutor(threadName: String): Executor {
-        return Executors.newSingleThreadExecutor(NetworkAnalyzerSingleThreadFactory(threadName))
+        return Executors.newSingleThreadExecutor(AppAnalyzerSingleThreadFactory(threadName))
     }
 
     internal fun saveRequestToDatabase(requestEntity: RequestEntity, replace: Boolean = false) {

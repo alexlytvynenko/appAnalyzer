@@ -1,6 +1,6 @@
 package com.alexlytvynenko.appanalyzer
 
-import com.alexlytvynenko.appanalyzer.internal.NetworkAnalyzerInternal
+import com.alexlytvynenko.appanalyzer.internal.AppAnalyzerInternal
 import com.alexlytvynenko.appanalyzer.internal.entity.RequestEntity
 import java.nio.charset.Charset
 import okhttp3.*
@@ -17,13 +17,13 @@ class HttpNetworkAnalyzerInterceptor : Interceptor {
     private val UTF8 = Charset.forName("UTF-8")
 
     init {
-        NetworkAnalyzerInternal.isNetworkInterceptorInited = true
+        AppAnalyzerInternal.isNetworkInterceptorInited = true
     }
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
 
-        if (NetworkAnalyzerInternal.disabledRequests) return chain.proceed(chain.request())
+        if (AppAnalyzerInternal.disabledRequests) return chain.proceed(chain.request())
 
         var responseStatus = "In process"
         val request = chain.request()
@@ -63,7 +63,7 @@ class HttpNetworkAnalyzerInterceptor : Interceptor {
                 startDateInMS = startMs, requestHeaders = requestHeadersMap,
                 requestBody = requestBodyString,
                 url = request.url().toString(), status = responseStatus)
-        NetworkAnalyzerInternal.saveRequestToDatabase(requestEntity)
+        AppAnalyzerInternal.saveRequestToDatabase(requestEntity)
 
         val response: Response
         try {
@@ -73,7 +73,7 @@ class HttpNetworkAnalyzerInterceptor : Interceptor {
             requestEntity.status = responseStatus
             requestEntity.duration = "0 ms"
             requestEntity.responseBody = "No response body"
-            NetworkAnalyzerInternal.saveRequestToDatabase(requestEntity, true)
+            AppAnalyzerInternal.saveRequestToDatabase(requestEntity, true)
             throw e
         }
 
@@ -122,7 +122,7 @@ class HttpNetworkAnalyzerInterceptor : Interceptor {
                     else ""
         }
         requestEntity.responseBody = responseBodyString
-        NetworkAnalyzerInternal.saveRequestToDatabase(requestEntity, true)
+        AppAnalyzerInternal.saveRequestToDatabase(requestEntity, true)
         return response
     }
 

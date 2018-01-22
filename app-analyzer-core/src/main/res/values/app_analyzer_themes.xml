@@ -1,12 +1,12 @@
 <resources>
 
-    <style name="network_analyzer_NetworkAnalyzer.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="app_analyzer_AppAnalyzer.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:textColorSecondary">@android:color/white</item>
         <item name="android:windowBackground">@color/app_analyzer_bg_color</item>
     </style>
 
-    <style name="network_analyzer_NetworkAnalyzer.Base.NoActionBar">
+    <style name="app_analyzer_AppAnalyzer.Base.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
