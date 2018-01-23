@@ -3,6 +3,10 @@
 
 An Android library for listening logs, exceptions and OkHttp's requests.
 
+<p align="center">
+<img src="https://github.com/alexlytvynenko/appAnalyzer/blob/master/assets/screenshots.png"/>
+</p>
+
 ## Getting started
 
 In your `build.gradle`:
@@ -105,6 +109,7 @@ res/
 ## Sample
 * Clone the repository and check out the `app-analyzer-sample` module.
 * Download a [sample apk](https://raw.githubusercontent.com/alexlytvynenko/appAnalyzer/master/app-analyzer-sample.apk) to check it.
+
 
 <p align="center">
 <img src="https://github.com/alexlytvynenko/appAnalyzer/blob/master/assets/app_analyzer_icon.png" width="250"/>
